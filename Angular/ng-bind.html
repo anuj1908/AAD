@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-app="app" style="text-align: center;">
+    <h1 style="color: gold">Computer Science</h1>
+    <h3>ng-bind Directive</h3>
+    <div ng-controller="app">
+        num1 :<input type="text" ng-change="product()" ng-model="num1"/><br><br>
+        num2 :<input type="text" ng-change="product()" ng-model="num2"/><br><br>
+        <b>Product is:</b>
+        <span ng-bind="result"></span>
+    </div>
+    <script>
+        app=angular.module('app',[])
+        app.controller('app', function($scope){
+            $scope.product=function(){
+                $scope.result=$scope.num1*$scope.num2;
+            }
+        })
+    </script>
+    
+</body>
+</html>

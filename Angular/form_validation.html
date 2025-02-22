@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-app="app">
+    <h1>DEVELOPERS</h1>
+    <h3>Angular JS Custom form validation</h3>
+    <form name="myform">
+        Username<input type="text" name="Username" required/><br><br>
+        Age<input name="age" ng-model="age" required app-directive/><br><br>
+    </form>
+    <p>The input valid state is :</p>
+    <h3>{{myform.age.$valid}}</h3>
+    <script>
+        app=angular.module('app',[]);
+        app.directive('appDirective',function(){
+            return{
+                require:"ngModel",
+                link:function(scope,elements,altr,mctrl){
+                    function myValidation(value){
+                        if(value>18){
+                            mctrl.$setValidity('charE',true);
+                        }
+                        else{
+                            mctrl.$setValidity('charE',false);
+                        }
+                        return value;
+                    }
+                    mctrl.$parsers.push(myValidation);
+                }
+            }
+        })
+    </script>
+</body>
+</html>

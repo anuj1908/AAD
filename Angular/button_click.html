@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-app="app" style="text-align: center">
+    <h1 style="color: greenyellow">Computer Science</h1>
+    <h3> ng-click Directive</h3>
+    <div ng-controller="app">
+        <button class="btn btn-default" ng-click=FY()>Button 1</button>
+        <button class="btn btn-primary" ng-click=SY()>Button 2</button>
+        <p>Quick Sort is <b>{{res}}</b></p>
+    </div>
+    <script>
+        var app = angular.module('app',[]);
+        app.controller('app', function($scope){
+            $scope.FY = function(){
+                return $scope.res="Preferable";
+            }
+            $scope.SY = function(){
+                return $scope.res="Not Preferable";
+            };
+        });
+    </script>
+    
+</body>
+</html>

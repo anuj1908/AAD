@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-app="app" >
+    <div ng-controller="app">
+        <p>Write something in the input field:</p>
+        <input type="text" ng-change="myFunc()" ng-model="myValue"/>
+        <p>The input field has chnaged <b>{{ count }}</b> times</p>
+    </div>
+    <script>
+        var app = angular.module('app',[]);
+        app.controller('app',function($scope){
+            $scope.count=0;
+            $scope.myFunc = function(){
+                $scope.count++;
+            };
+        });
+    </script>
+    
+</body>
+</html>
